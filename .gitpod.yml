@@ -1,5 +1,3 @@
-image:
-  file: .gitpod.Dockerfile
 tasks:
-  - before: nvm install 12.13
-    command: node -v
+  - name: Setup node
+    init: nvm install && nvm use && nvm alias default 14
