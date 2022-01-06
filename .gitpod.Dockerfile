@@ -2,6 +2,11 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
+ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 14.18.2
 
-RUN bash -c ". .nvm/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION"
+# install node and npm
+RUN source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
