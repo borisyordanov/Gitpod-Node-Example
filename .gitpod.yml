@@ -3,5 +3,5 @@ github:
     # https://www.gitpod.io/docs/prebuilds#github-specific-configuration
     branches: true
 tasks:
-  - name: Setup node
-    init: nvm install && nvm use && nvm alias default 14
+  - name: Setup npm
+    init: npm i -g npm@7
