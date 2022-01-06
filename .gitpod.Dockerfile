@@ -2,7 +2,7 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
-ENV NVM_DIR /usr/local/nvm
+ENV NVM_DIR .nvm
 ENV NODE_VERSION 14.18.2
 
 # install node and npm
