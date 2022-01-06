@@ -1,5 +1,7 @@
 FROM gitpod/workspace-full:latest
 
-RUN bash -c ". .nvm/nvm.sh && nvm install && nvm use && nvm alias default 14"
+USER root
 
-RUN echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
+ENV NODE_VERSION 14.18.2
+
+RUN bash -c ". .nvm/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION"
