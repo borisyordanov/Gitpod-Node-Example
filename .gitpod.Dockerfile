@@ -1,12 +1,7 @@
-FROM gitpod/workspace-full
+FROM gitpod/workspace-full:latest
 
 USER root
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN apt-get update \
-#    && apt-get install -y bastet \
-#    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
-#
-# More information: https://www.gitpod.io/docs/42_config_docker/
+ENV NODE_VERSION 14.18.2
+
+RUN bash -c ". .nvm/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION"
