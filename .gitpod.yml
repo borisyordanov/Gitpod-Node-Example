@@ -1,3 +1,5 @@
+image:
+  file: .gitpod.Dockerfile
 github:
   prebuilds:
     # https://www.gitpod.io/docs/prebuilds#github-specific-configuration
