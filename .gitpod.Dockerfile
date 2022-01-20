@@ -1,12 +1,7 @@
-FROM gitpod/workspace-full
+FROM gitpod/workspace-full:latest
 
-USER root
+RUN bash -c 'VERSION="14.18.2" \
+    && source $HOME/.nvm/nvm.sh && nvm install $VERSION \
+    && nvm use $VERSION && nvm alias default $VERSION'
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN apt-get update \
-#    && apt-get install -y bastet \
-#    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
-#
-# More information: https://www.gitpod.io/docs/42_config_docker/
+RUN printf '%s\n' "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
